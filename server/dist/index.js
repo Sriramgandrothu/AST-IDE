@@ -20,6 +20,9 @@ app.use((0, cors_1.default)({
 (0, dotenv_1.config)();
 app.use("/compiler", compilerRouter_1.compilerRouter);
 app.use("/user", userRouter_1.userRouter);
+app.get("/sriram", (req, res) => {
+    res.status(200).json({ status: "OK", message: "Server is running smoothly" });
+});
 (0, dbConnect_1.dbConnect)();
 app.listen(4000, () => {
     console.log("http://localhost:4000");

@@ -10,10 +10,10 @@ const dbConnect = async () => {
         await mongoose_1.default.connect(process.env.MONGO_URI, {
             dbName: "wd-compiler",
         });
-        console.log("connection established!");
+        console.log("Connection established ❤️");
     }
     catch (error) {
-        console.log("error connecting to database");
+        console.log("Error connecting to Database😂");
     }
 };
 exports.dbConnect = dbConnect;

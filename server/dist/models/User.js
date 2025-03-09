@@ -23,9 +23,13 @@ const UserSchema = new mongoose_1.default.Schema({
         required: true,
         trim: true,
     },
+    isAdmin: {
+        type: Boolean,
+        default: false,
+    },
     picture: {
         type: String,
-        default: "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg",
+        default: "https://res.cloudinary.com/djizcuofs/image/upload/v1741525249/AST.jpg",
     },
     savedCodes: [{ type: mongoose_1.default.Schema.Types.ObjectId, ref: "Code" }],
 }, { timestamps: true });
