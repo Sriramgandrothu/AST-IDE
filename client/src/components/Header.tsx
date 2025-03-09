@@ -10,6 +10,7 @@ import { updateIsOwner } from "@/redux/slices/compilerSlice";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [logout, { isLoading }] = useLogoutMutation();
@@ -22,6 +23,7 @@ export default function Header() {
     (state: RootState) => state.appSlice.isLoggedIn
   );
   const { currentUser } = useSelector((state: RootState) => state.appSlice);
+  const navigate = useNavigate();
 
   async function handleLogout() {
     try {
@@ -29,6 +31,7 @@ export default function Header() {
       dispatch(updateIsLoggedIn(false));
       dispatch(updateCurrentUser({}));
       dispatch(updateIsOwner(false));
+      navigate("/");
     } catch (error) {
       handleError(error);
     }
