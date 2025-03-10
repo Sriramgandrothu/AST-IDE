@@ -186,7 +186,7 @@ export default function Home() {
             <Code2 size={28} />
           </div>
           <h3 className="text-xl font-semibold mb-2">Multi-language Support</h3>
-          <p className="text-gray-400">Compile and run HTML, CSS, JavaScript, TypeScript, and more.</p>
+          <p className="text-gray-400">Compile and run HTML, CSS, JavaScript with ease.</p>
         </Card>
 
         <Card className="bg-gray-900/50 border-gray-800 p-6">
