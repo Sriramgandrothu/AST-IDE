@@ -11,7 +11,7 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://ast-ide-server.onrender.com",
     credentials: "include",
-    headers: { "token": "your-value" }
+    headers: { "token": sessionStorage.token }
   }),
   tagTypes: ["myCodes", "allCodes"],
   endpoints: (builder) => ({
