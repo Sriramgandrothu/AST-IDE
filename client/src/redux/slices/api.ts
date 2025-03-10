@@ -9,7 +9,7 @@ import {
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:4001/",
+    baseUrl: "https://ast-ide-server.onrender.com/",
     credentials: "include",
     headers: { "token": sessionStorage.getItem("token") || "" }
   }),
