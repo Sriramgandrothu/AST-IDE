@@ -9,9 +9,9 @@ import {
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://ast-ide-server.onrender.com",
+    baseUrl: "http://localhost:4001/",
     credentials: "include",
-    headers: { "token": sessionStorage.token }
+    headers: { "token": sessionStorage.getItem("token") || "" }
   }),
   tagTypes: ["myCodes", "allCodes"],
   endpoints: (builder) => ({
