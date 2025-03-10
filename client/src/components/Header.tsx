@@ -126,7 +126,7 @@ export default function Header() {
               <ul className="flex gap-2 flex-col py-5">
                 <li>
                   <Link to="/">
-                    <Button variant="link">Home</Button>
+                    <Button onClick={handleCloseSheet} variant="link">Home</Button>
                   </Link>
                 </li>
                 <li>
@@ -147,7 +147,7 @@ export default function Header() {
                 {currentUser?.isAdmin && (
                   <li>
                     <Link to="/all-codes">
-                      <Button variant="link">All Codes</Button>
+                      <Button onClick={handleCloseSheet} variant="link">All Codes</Button>
                     </Link>
                   </li>
                 )}
