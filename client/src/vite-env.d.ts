@@ -9,6 +9,7 @@ interface userInfoType {
   email: string;
   savedCodes: Array<string>;
   isAdmin?: boolean;
+  token: any;
 }
 
 interface loginCredentialsType {

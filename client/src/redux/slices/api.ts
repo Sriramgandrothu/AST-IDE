@@ -9,7 +9,7 @@ import {
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:4000/",
+    baseUrl: "https://ast-ide-server.onrender.com/" ,
     credentials: "include",
   }),
   tagTypes: ["myCodes", "allCodes"],
@@ -56,10 +56,17 @@ export const api = createApi({
       }),
     }),
     getUserDetails: builder.query<userInfoType, void>({
-      query: () => ({ url: "/user/user-details", cache: "no-store" }),
+      query: () => ({ 
+        url: "/user/user-details", 
+        cache: "no-store",
+        credentials: "include", 
+      }),
     }),
     getMyCodes: builder.query<Array<codeType>, void>({
-      query: () => "/user/my-codes",
+      query: () => ({
+        url: "/user/my-codes",
+        credentials: "include",
+      }),
       providesTags: ["myCodes"],
     }),
     deleteCode: builder.mutation<void, string>({

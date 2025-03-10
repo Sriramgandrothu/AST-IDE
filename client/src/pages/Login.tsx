@@ -39,7 +39,7 @@ export default function Login() {
       const response = await login(values).unwrap()
       dispatch(updateCurrentUser(response))
       dispatch(updateIsLoggedIn(true))
-
+      sessionStorage.setItem('token',response.token)
       // Check if there's a redirect path stored
       const redirectPath = localStorage.getItem("redirectAfterLogin")
       if (redirectPath) {
@@ -52,6 +52,7 @@ export default function Login() {
       handleError(error)
     }
   }
+
 
   return (
     <div className="__login grid-bg w-full h-[calc(100dvh-60px)] flex justify-center items-center flex-col gap-3">
