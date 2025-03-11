@@ -12,7 +12,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { toast } from "sonner"
-import { useEditCodeMutation, useSaveCodeMutation } from "@/redux/slices/api"
+import { useEditCodeMutation, useSaveCodeMutation,useGetUserDetailsQuery } from "@/redux/slices/api"
 import { Input } from "./ui/input"
 
 interface HelperHeaderProps {
@@ -22,13 +22,20 @@ interface HelperHeaderProps {
 export default function HelperHeader({ onSaveCheck }: HelperHeaderProps) {
   const isOwner = useSelector((state: RootState) => state.compilerSlice.isOwner)
   const [shareBtn, setShareBtn] = useState<boolean>(false)
-  const [postTitle, setPostTitle] = useState<string>("My Code")
+  const [postTitle, setPostTitle] = useState<string>("")
   const [saveDialogOpen, setSaveDialogOpen] = useState(false)
 
   const navigate = useNavigate()
   const fullCode = useSelector((state: RootState) => state.compilerSlice.fullCode)
   const [saveCode, { isLoading }] = useSaveCodeMutation()
   const [editCode, { isLoading: codeEditLoading }] = useEditCodeMutation()
+
+  const { data: user } = useGetUserDetailsQuery()
+  const username = user?.username || "Guest"
+
+  useEffect(() => {
+    setPostTitle(`${username}'s`)
+  }, [username])
 
   const handleDownloadCode = () => {
     if (fullCode.html === "" && fullCode.css === "" && fullCode.javascript === "") {
@@ -133,7 +140,7 @@ export default function HelperHeader({ onSaveCheck }: HelperHeaderProps) {
                   className="bg-slate-700 focus-visible:ring-0"
                   placeholder="Type your Post title"
                   value={postTitle}
-                  onChange={(e) => setPostTitle(e.target.value)}
+                  onChange={(e) => setPostTitle(`${username}'s ${e.target.value.replace(`${username}'s `, "")}`)}
                 />
                 <Button variant="success" className="h-full" onClick={handleSaveCode}>
                   Save

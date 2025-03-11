@@ -37,7 +37,7 @@ export default function CodeItem({
       </div>
       <Separator />
       <div className="__btn_container flex gap-3">
-        <Link target="_blank" to={`/compiler/${data._id}`}>
+        <Link to={`/compiler/${data._id}`}>
           <Button variant="secondary">Open Code</Button>
         </Link>
         {deleteBtn && (

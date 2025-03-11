@@ -8,6 +8,7 @@ import { loadLanguage } from "@uiw/codemirror-extensions-langs"
 import { useDispatch, useSelector } from "react-redux"
 import type { RootState } from "@/redux/store"
 import { updateCodeValue } from "@/redux/slices/compilerSlice"
+import { EditorView } from "@codemirror/view";
 
 export default function CodeEditor() {
   const currentLanguage = useSelector((state: RootState) => state.compilerSlice.currentLanguage)
@@ -21,12 +22,20 @@ export default function CodeEditor() {
     [dispatch],
   )
 
+  // Extension to disable copy, cut, paste, and right-click
+  const disableCopyPaste = EditorView.domEventHandlers({
+    copy: (event) => event.preventDefault(),
+    cut: (event) => event.preventDefault(),
+    paste: (event) => event.preventDefault(),
+    contextmenu: (event) => event.preventDefault(), // Disable right-click
+  });
+
   return (
     <CodeMirror
       value={fullCode[currentLanguage]}
       height="calc(100vh - 60px - 50px)"
       className="code-editor [&>.cm-editor]:text-[10px] [&>.cm-editor]:md:text-[13px]"
-      extensions={[loadLanguage(currentLanguage)!]}
+      extensions={[loadLanguage(currentLanguage)!, disableCopyPaste]}
       onChange={onChange}
       theme={draculaInit({
         settings: {
@@ -38,4 +47,3 @@ export default function CodeEditor() {
     />
   )
 }
-
