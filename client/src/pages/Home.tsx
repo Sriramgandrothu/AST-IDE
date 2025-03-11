@@ -65,7 +65,7 @@ export default function Home() {
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <DialogTitle className="flex gap-1 justify-center items-center">
+                <DialogTitle className="flex gap-1 mb-2 justify-center items-center">
                   Share Some Links
                   <ArrowUpRightFromSquare size={18} />
                 </DialogTitle>
@@ -123,7 +123,184 @@ export default function Home() {
                     <Copy size={14} />
                   </Button>
                 </div>
-                <p className="text-center text-slate-400 text-xs">Share this URL's with your friends to have some fun in coding.</p>
+                {/* Social sharing section */}
+                <div className="mt-4">
+                  <p className="text-sm font-medium mb-2">Share via:</p>
+                  <div className="grid grid-cols-3 gap-2">
+                    <Button
+                      variant="outline"
+                      className="flex items-center justify-center gap-2"
+                      onClick={() => {
+                        const text = encodeURIComponent(
+                          "Checkout the amazing web compiler\nMade with Love\nHappy Coding\nhttps://ast-ide.vercel.app/",
+                        )
+                        window.open(`https://wa.me/?text=${text}`, "_blank")
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-green-500"
+                      >
+                        <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"></path>
+                        <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Zm0 0a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"></path>
+                      </svg>
+                      WhatsApp
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="flex items-center justify-center gap-2"
+                      onClick={() => {
+                        const text = encodeURIComponent("Checkout the amazing web compiler\nMade with Love")
+                        const url = encodeURIComponent("https://ast-ide.vercel.app/")
+                        window.open(
+                          `https://www.linkedin.com/sharing/share-offsite/?url=${url}&summary=${text}`,
+                          "_blank",
+                        )
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-blue-500"
+                      >
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                      LinkedIn
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="flex items-center justify-center gap-2"
+                      onClick={() => {
+                        const text = encodeURIComponent("Checkout the amazing web compiler\nMade with Love")
+                        const url = encodeURIComponent("https://ast-ide.vercel.app/")
+                        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, "_blank")
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-blue-600"
+                      >
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                      </svg>
+                      Facebook
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="flex items-center justify-center gap-2"
+                      onClick={() => {
+                        // Instagram doesn't have a direct web sharing API, so we'll open Instagram app/website
+                        toast("Instagram doesn't support direct sharing via web. Copy the link and share manually.")
+                        // Attempt to open Instagram app
+                        window.open("instagram://app", "_blank")
+                        // Fallback to website after a short delay
+                        setTimeout(() => {
+                          window.open("https://www.instagram.com/", "_blank")
+                        }, 500)
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-pink-500"
+                      >
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                      </svg>
+                      Instagram
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="flex items-center justify-center gap-2"
+                      onClick={() => {
+                        const text = encodeURIComponent("Checkout the amazing web compiler\nMade with ❤️")
+                        const url = encodeURIComponent("https://ast-ide.vercel.app/")
+                        window.open(`mailto:?subject=Check out this web compiler&body=${text}%0A${url}`, "_blank")
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-red-500"
+                      >
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                      </svg>
+                      Email
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="flex items-center justify-center gap-2"
+                      onClick={() => {
+                        const text = encodeURIComponent("Checkout the amazing web compiler\nMade with ❤️")
+                        const url = encodeURIComponent("https://ast-ide.vercel.app/")
+                        window.open(`https://telegram.me/share/url?url=${url}&text=${text}`, "_blank")
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-blue-400"
+                      >
+                        <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 7.5a2.25 2.25 0 0 0 .126 4.073l3.9 1.205 2.306 6.54c.5 1.4 2.364 1.866 3.427.837l1.937-1.873 5.308 3.895c.93.68 2.25.433 2.812-.538l6.75-11.6a2.25 2.25 0 0 0-2.6-3.256l-6.533 2.982-10.9-4.5z"></path>
+                      </svg>
+                      Telegram
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="mt-4 pt-4 border-t border-gray-700">
+                  <p className="text-center text-slate-400 text-xs">
+                    Share this URL with your friends to have some fun in coding.
+                  </p>
+                  <p className="text-center text-slate-300 text-xs mt-2">Made with ❤️</p>
+                </div>
               </DialogHeader>
             </DialogContent>
           </Dialog>
