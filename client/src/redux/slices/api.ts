@@ -9,8 +9,8 @@ import {
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({
-    // baseUrl: "https://ast-ide-server.onrender.com/", // render
-    baseUrl:"https://ast-server-tau.vercel.app/", //vercel
+    baseUrl: "https://ast-ide-server.onrender.com/", // render
+    // baseUrl:"https://ast-server-tau.vercel.app/", //vercel
     credentials: "include",
     headers: { "token": sessionStorage.getItem("token") || "" }
   }),
