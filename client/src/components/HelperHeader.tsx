@@ -12,7 +12,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { toast } from "sonner"
-import { useEditCodeMutation, useSaveCodeMutation,useGetUserDetailsQuery } from "@/redux/slices/api"
+import { useEditCodeMutation, useSaveCodeMutation, useGetUserDetailsQuery } from "@/redux/slices/api"
 import { Input } from "./ui/input"
 
 interface HelperHeaderProps {
@@ -34,7 +34,7 @@ export default function HelperHeader({ onSaveCheck }: HelperHeaderProps) {
   const username = user?.username || "Guest"
 
   useEffect(() => {
-    setPostTitle(`${username}'s`)
+    setPostTitle(`${username}'s `)
   }, [username])
 
   const handleDownloadCode = () => {
@@ -140,7 +140,16 @@ export default function HelperHeader({ onSaveCheck }: HelperHeaderProps) {
                   className="bg-slate-700 focus-visible:ring-0"
                   placeholder="Type your Post title"
                   value={postTitle}
-                  onChange={(e) => setPostTitle(`${username}'s ${e.target.value.replace(`${username}'s `, "")}`)}
+                  onChange={(e) => {
+                    const value = e.target.value
+                    const prefix = `${username}'s `
+                    if (!value.startsWith(prefix)) {
+                      const remainingText = value.replace(prefix.slice(0, value.length), "")
+                      setPostTitle(`${prefix}${remainingText}`)
+                    } else {
+                      setPostTitle(value)
+                    }
+                  }}
                 />
                 <Button variant="success" className="h-full" onClick={handleSaveCode}>
                   Save
