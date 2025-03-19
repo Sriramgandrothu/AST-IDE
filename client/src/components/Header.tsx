@@ -115,19 +115,19 @@ export default function Header() {
               <ul className="flex gap-2 flex-col py-5">
                 <li>
                   <Link to="/">
-                    <Button onClick={handleCloseSheet} variant="link">
+                    <Button onClick={handleCloseSheet} className="w-full" variant="link">
                       Home
                     </Button>
                   </Link>
                 </li>
                 <li>
                   <Link to="/about">
-                    <Button onClick={handleCloseSheet} variant="link">About</Button>
+                    <Button onClick={handleCloseSheet} className="w-full" variant="link">About</Button>
                   </Link>
                 </li>
                 <li>
                   <Link to="/compiler">
-                    <Button onClick={handleCloseSheet} variant="link">
+                    <Button onClick={handleCloseSheet} className="w-full" variant="link">
                       Compiler
                     </Button>
                   </Link>
@@ -135,7 +135,7 @@ export default function Header() {
                 {currentUser?.isAdmin && (
                   <li>
                     <Link to="/all-codes">
-                      <Button onClick={handleCloseSheet} variant="link">
+                      <Button onClick={handleCloseSheet} className="w-full" variant="link">
                         All Codes
                       </Button>
                     </Link>
@@ -145,7 +145,7 @@ export default function Header() {
                   <>
                     <li>
                       <Link to="/my-codes">
-                        <Button onClick={handleCloseSheet} variant="link">
+                        <Button onClick={handleCloseSheet} className="w-full" variant="link">
                           My Codes
                         </Button>
                       </Link>
@@ -168,14 +168,14 @@ export default function Header() {
                   <>
                     <li>
                       <Link to="/login">
-                        <Button onClick={handleCloseSheet} variant="link">
+                        <Button onClick={handleCloseSheet} className="w-full" variant="link">
                           Login
                         </Button>
                       </Link>
                     </li>
                     <li>
                       <Link to="/signup">
-                        <Button onClick={handleCloseSheet} variant="link">
+                        <Button onClick={handleCloseSheet} className="w-full" variant="link">
                           Signup
                         </Button>
                       </Link>
@@ -184,11 +184,11 @@ export default function Header() {
                 )}
               </ul>
 
-              <div className="w-full max-w-5xl mt-12 text-center z-10 pt-8 border-t border-gray-800">
-                <p className="text-gray-400 text-sm">Made with ❤️</p>
-                <p className="text-gray-300 font-medium mt-1">Team AST</p>
+              <div className="w-full max-w-5xl text-center z-10 pt-4 border-t border-gray-800">
+                <p className="text-gray-400 text-xs">Made with ❤️</p>
+                <p className="text-gray-100 font-sm mt-1">Team AST</p>
                 <p className="text-gray-400 text-xs mt-3">Developed by Sriram Gandrothu</p>
-                <p className="text-gray-500 text-xs mt-2">© 2025 All Rights Reserved</p>
+                <p className="text-gray-100 text-xs mt-2">© 2025 All Rights Reserved</p>
               </div>
             </SheetContent>
           </Sheet>
