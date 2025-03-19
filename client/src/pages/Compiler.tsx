@@ -89,24 +89,16 @@ export default function Compiler() {
       </ResizablePanelGroup>
 
       <Dialog open={showLoginDialog} onOpenChange={setShowLoginDialog}>
-        <DialogContent className="max-w-xs sm:max-w-[425px] w-full p-4">
+        <DialogContent className="max-w-xs sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle className="text-lg sm:text-xl">Login Required</DialogTitle>
-            <DialogDescription className="text-sm sm:text-base">
-              To save your code, you must be logged in.
-            </DialogDescription>
+            <DialogTitle>Login Required</DialogTitle>
+            <DialogDescription>To save your code, you must be logged in.</DialogDescription>
           </DialogHeader>
-          <DialogFooter className="flex flex-col sm:flex-row gap-2">
-            <Button
-              variant="outline"
-              onClick={() => setShowLoginDialog(false)}
-              className="w-full sm:w-auto"
-            >
+          <DialogFooter className="gap-2">
+            <Button variant="outline" onClick={() => setShowLoginDialog(false)}>
               Cancel
             </Button>
-            <Button onClick={handleLoginRedirect} className="w-full sm:w-auto">
-              Login
-            </Button>
+            <Button onClick={handleLoginRedirect}>Login</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
