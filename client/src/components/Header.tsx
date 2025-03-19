@@ -40,10 +40,6 @@ export default function Header() {
     setSheetOpen(false)
   }
 
-  const handleClick = () => {
-    window.open("http://sriramgandrothu.netlify.app/", "_blank")
-  }
-
   return (
     <nav className="w-full h-[60px] bg-gray-900 text-white p-3 flex justify-between items-center">
       <Link to="/">
@@ -125,8 +121,8 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" onClick={handleClick}>
-                    <Button variant="link">About</Button>
+                  <Link to="/about">
+                    <Button onClick={handleCloseSheet} variant="link">About</Button>
                   </Link>
                 </li>
                 <li>
@@ -188,12 +184,11 @@ export default function Header() {
                 )}
               </ul>
 
-              <div className="mt-auto pt-6 border-t border-gray-200 dark:border-gray-800 text-center">
-                <p className="text-gray-700 dark:text-gray-300 font-medium mt-1">Team AST</p>
-                <p className="text-gray-500 dark:text-gray-400 text-xs mt-3">Developed by Sriram Gandrothu</p>
-                <p className="text-gray-400 dark:text-gray-500 text-xs mt-2">
-                  © {new Date().getFullYear()} All Rights Reserved
-                </p>
+              <div className="w-full max-w-5xl mt-12 text-center z-10 pt-8 border-t border-gray-800">
+                <p className="text-gray-400 text-sm">Made with ❤️</p>
+                <p className="text-gray-300 font-medium mt-1">Team AST</p>
+                <p className="text-gray-400 text-xs mt-3">Developed by Sriram Gandrothu</p>
+                <p className="text-gray-500 text-xs mt-2">© 2025 All Rights Reserved</p>
               </div>
             </SheetContent>
           </Sheet>
