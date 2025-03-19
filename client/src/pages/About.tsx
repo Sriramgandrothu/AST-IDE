@@ -1,15 +1,13 @@
 "use client"
 
-import { useRef, useEffect } from "react"
-import { motion, useScroll, useTransform, useInView } from "framer-motion"
+import { useRef } from "react"
+import { motion, useInView } from "framer-motion"
 import { Code, Globe, Zap, Lightbulb, Layers, Share2 } from 'lucide-react'
 
 export default function AboutPage() {
     const containerRef = useRef(null)
     const isInView = useInView(containerRef, { once: false, amount: 0.3 })
 
-    const { scrollYProgress } = useScroll()
-    const y = useTransform(scrollYProgress, [0, 1], [0, -100])
 
     // Refs for each section
     const htmlRef = useRef(null)
