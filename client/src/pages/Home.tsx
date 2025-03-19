@@ -92,13 +92,13 @@ export default function Home() {
                     type="text"
                     disabled
                     className="w-full p-2 rounded bg-slate-800 text-slate-400 select-none"
-                    value="http://sriramgandrothu.netlify.app"
+                    value="https://ast-admin.in"
                   />
                   <Button
                     variant="outline"
                     className="h-full"
                     onClick={() => {
-                      navigator.clipboard.writeText("http://sriramgandrothu.netlify.app")
+                      navigator.clipboard.writeText("https://ast-admin.in")
                       toast("URL Copied to your clipboard!")
                     }}
                   >
@@ -110,13 +110,13 @@ export default function Home() {
                     type="text"
                     disabled
                     className="w-full p-2 rounded bg-slate-800 text-slate-400 select-none"
-                    value="https://ast-admin.in"
+                    value="http://sriramgandrothu.netlify.app"
                   />
                   <Button
                     variant="outline"
                     className="h-full"
                     onClick={() => {
-                      navigator.clipboard.writeText("https://ast-admin.in")
+                      navigator.clipboard.writeText("http://sriramgandrothu.netlify.app")
                       toast("URL Copied to your clipboard!")
                     }}
                   >
@@ -297,7 +297,7 @@ export default function Home() {
 
                 <div className="mt-4 pt-4 border-t border-gray-700">
                   <p className="text-center text-slate-400 text-xs">
-                    Share this URL with your friends to have some fun in coding.
+                    Share this URL's with your friends to have some fun in coding.
                   </p>
                   <p className="text-center text-slate-300 text-xs mt-2">Made with ❤️</p>
                 </div>
@@ -390,10 +390,10 @@ export default function Home() {
         transition={{ delay: 1.6, duration: 0.7 }}
         className="w-full max-w-5xl mt-12 text-center z-10 pt-8 border-t border-gray-800"
       >
-        <p className="text-gray-400 text-sm">Made with Love</p>
+        <p className="text-gray-400 text-sm">Made with ❤️</p>
         <p className="text-gray-300 font-medium mt-1">Team AST</p>
         <p className="text-gray-400 text-xs mt-3">Developed by Sriram Gandrothu</p>
-        <p className="text-gray-500 text-xs mt-2">© {new Date().getFullYear()} All Rights Reserved</p>
+        <p className="text-gray-500 text-xs mt-2">© 2025 All Rights Reserved</p>
       </motion.div>
     </div>
   )

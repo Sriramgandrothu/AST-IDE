@@ -57,7 +57,7 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link to="#" onClick={handleClick}>
+            <Link to="/about" >
               <Button variant="link">About</Button>
             </Link>
           </li>
